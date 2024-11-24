@@ -1,0 +1,515 @@
+/**index.wxss**/
+page {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.scrollarea {
+  flex: 1;
+  overflow-y: hidden;
+}
+
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #aaa;
+  width: 80%;
+}
+
+.userinfo-avatar {
+  overflow: hidden;
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.usermotto {
+  margin-top: 200px;
+}
+
+.avatar-wrapper {
+  padding: 0;
+  width: 56px !important;
+  border-radius: 8px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.avatar {
+  display: block;
+  width: 56px;
+  height: 56px;
+}
+
+.nickname-wrapper {
+  display: flex;
+  width: 100%;
+  padding: 16px;
+  box-sizing: border-box;
+  border-top: .5px solid rgba(0, 0, 0, 0.1);
+  border-bottom: .5px solid rgba(0, 0, 0, 0.1);
+  color: black;
+}
+
+.nickname-label {
+  width: 105px;
+}
+
+.nickname-input {
+  flex: 1;
+}
+
+.container {
+  padding: 20rpx;
+  margin: 0 auto;
+  width: 90%;
+}
+
+.card {
+  background: #fff;
+  border-radius: 20rpx;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.08);
+  margin-bottom: 32rpx;
+  width: 100%;
+  transition: all 0.3s ease;
+  border: 2rpx solid #f0f0f0;
+}
+
+.card:hover {
+  box-shadow: 0 8rpx 24rpx rgba(0, 0, 0, 0.12);
+}
+
+.card-header {
+  padding: 24rpx;
+  padding-bottom: 0px;
+  position: relative;
+}
+
+.card-title {
+  font-size: 36rpx;
+  font-weight: bold;
+  display: block;
+}
+
+.card-description {
+  font-size: 28rpx;
+  color: #666;
+}
+
+.level-progress {
+  margin: 20rpx 0;
+}
+
+.level-info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 16rpx;
+  padding: 16rpx;
+  border-radius: 12rpx;
+  font-weight: bold;
+}
+
+.level-info text:first-child {
+  color: #1890ff;
+}
+
+.level-info text:last-child {
+  color: #f59e0b;
+}
+
+.habits-list {
+  margin: 20rpx 0;
+}
+
+.habit-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16rpx;
+  animation: fadeIn 0.3s ease;
+  height: 72rpx;
+}
+
+.habit-checkbox-wrapper {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  padding: 20rpx 24rpx;
+  background: #ffffff;
+  border-radius: 12rpx;
+  transition: all 0.3s ease;
+  border: 2rpx solid #eee;
+  height: 72rpx;
+  box-sizing: border-box;
+}
+
+.habit-checkbox-wrapper:active {
+  background: #f0f0f0;
+}
+
+.habit-checkbox {
+  margin-right: 20rpx;
+  transform: scale(1.2);
+  flex-shrink: 0;
+}
+
+.habit-name {
+  font-size: 28rpx;
+  line-height: 1;
+  flex: 1;
+}
+
+.icon {
+  width: 32rpx;
+  height: 32rpx;
+  margin-right: 16rpx;
+}
+
+.habit-actions {
+  display: flex;
+  gap: 12rpx;
+  margin-left: 12rpx;
+}
+
+.icon-button {
+  padding: 16rpx;
+  background: #f0f0f0;
+  border-radius: 8rpx;
+  transition: all 0.3s ease;
+  height: 72rpx;
+  width: 72rpx;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-button:active {
+  background: #e0e0e0;
+  transform: translateY(2rpx);
+}
+
+.add-habit {
+  display: flex;
+  gap: 16rpx;
+  margin-top: 20rpx;
+}
+
+.add-habit input {
+  flex: 1;
+  padding: 16rpx;
+  border: 2rpx solid #eee;
+  border-radius: 8rpx;
+  transition: all 0.3s ease;
+}
+
+.add-habit input:focus {
+  border-color: #1890ff;
+  background: #fff;
+  box-shadow: 0 0 0 2rpx rgba(24, 144, 255, 0.2);
+}
+
+.add-habit button {
+  padding: 0 32rpx;
+  background: #1890ff;
+  color: white;
+  border-radius: 8rpx;
+  font-weight: bold;
+  border: none;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 120rpx;
+  height: 72rpx;
+}
+
+.add-habit button:active {
+  background: #096dd9;
+  transform: translateY(2rpx);
+}
+
+.achievements-list {
+  margin-top: 16rpx;
+}
+
+.achievement-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 24rpx;
+  padding: 24rpx;
+  background: #f8f8f8;
+  border-radius: 12rpx;
+  transition: all 0.3s ease;
+}
+
+.achievement-item:hover {
+  background: #f0f0f0;
+}
+
+.achievement-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12rpx;
+}
+
+.unlocked {
+  color: #f59e0b;
+  font-weight: bold;
+  text-shadow: 0 1rpx 2rpx rgba(245, 158, 11, 0.1);
+  display: block;
+}
+
+.locked {
+  color: #999;
+  display: block;
+}
+
+.achievement-explanation {
+  font-size: 24rpx;
+  color: #666;
+  display: block;
+  line-height: 1.4;
+}
+
+.dialog-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dialog {
+  background: #fff;
+  border-radius: 20rpx;
+  width: 80%;
+  padding: 40rpx;
+  box-shadow: 0 8rpx 32rpx rgba(0, 0, 0, 0.12);
+}
+
+.dialog-header {
+  font-size: 32rpx;
+  font-weight: bold;
+  margin-bottom: 24rpx;
+}
+
+.dialog-content {
+  margin: 24rpx 0;
+}
+
+.dialog-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 16rpx;
+  margin-top: 24rpx;
+}
+
+.dialog-footer button {
+  padding: 16rpx 32rpx;
+  border-radius: 8rpx;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.dialog-footer button:first-child {
+  background: #f0f0f0;
+  color: #666;
+}
+
+.dialog-footer button:last-child {
+  background: #1890ff;
+  color: white;
+}
+
+.dialog-footer button:active {
+  transform: translateY(2rpx);
+}
+
+.card-content {
+  padding: 24rpx;
+  padding-top: 10rpx;
+}
+
+.card-footer {
+  padding: 24rpx;
+  border-top: 2rpx solid #eee;
+}
+
+.section-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 16rpx;
+}
+
+.weekly-chart {
+  width: 100%;
+  height: 600rpx;
+}
+
+.weekly-overview {
+  padding: 20rpx 0;
+}
+
+.chart-container {
+  position: relative;
+  height: 200px;
+  margin: 20px 30px 40px 40px;
+}
+
+.y-axis {
+  position: absolute;
+  left: -30px;
+  top: 0;
+  height: calc(100% - 20px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: 12px;
+  color: #999;
+}
+
+.chart-grid {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: calc(100% - 20px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.grid-line {
+  width: 100%;
+  height: 1px;
+  background-color: #eee;
+}
+
+.chart-bars {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: calc(100% - 20px);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.chart-column {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.chart-bar-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  position: relative;
+}
+
+.chart-bar {
+  width: 20px;
+  background: #1890ff;
+  border-radius: 4px 4px 0 0;
+  transition: height 0.3s ease;
+  position: absolute;
+  bottom: 0;
+}
+
+.chart-value {
+  position: absolute;
+  top: -20px;
+  width: 100%;
+  text-align: center;
+  font-size: 12px;
+  color: #666;
+}
+
+.chart-label {
+  position: absolute;
+  bottom: -25px;
+  width: 100%;
+  text-align: center;
+  font-size: 12px;
+  color: #666;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10rpx); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+progress {
+  border-radius: 999rpx;
+}
+
+.achievement-item .icon {
+  margin-top: 4rpx;
+  margin-right: 24rpx;
+}
+
+.icon-button .icon {
+  width: 36rpx;
+  height: 36rpx;
+  margin-right: 0;
+}
+
+.info-tooltip-wrapper {
+  position: absolute;
+  top: 24rpx;
+  right: 24rpx;
+}
+
+.info-icon {
+  width: 40rpx;
+  height: 40rpx;
+  opacity: 0.6;
+}
+
+.info-tooltip {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: 400rpx;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 16rpx 24rpx;
+  border-radius: 12rpx;
+  font-size: 28rpx;
+  margin-top: 16rpx;
+  box-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10rpx);
+  transition: all 0.2s ease;
+  z-index: 100;
+}
+
+.info-tooltip.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.info-tooltip::before {
+  content: '';
+  position: absolute;
+  top: -16rpx;
+  right: 16rpx;
+  border: 8rpx solid transparent;
+  border-bottom-color: rgba(0, 0, 0, 0.8);
+}

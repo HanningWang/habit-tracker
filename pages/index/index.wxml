@@ -1,0 +1,137 @@
+<!--index.wxml-->
+<scroll-view class="scrollarea" scroll-y type="list">
+  <view class="container">
+    <view class="card mb-8">
+      <view class="card-header">
+        <text class="card-title">习惯追踪器</text>
+        <text class="card-description">追踪你的日常习惯，提升升级！</text>
+        
+        <view class="info-tooltip-wrapper">
+          <image class="info-icon" src="../../images/info.svg" bindtap="toggleTooltip" />
+          <view class="info-tooltip {{showTooltip ? 'show' : ''}}">
+            <text>每完成一个习惯获得10分。每50分升一级！</text>
+          </view>
+        </view>
+      </view>
+
+      <view class="card-content">
+        <view class="level-progress">
+          <view class="level-info">
+            <text>积分：{{points}}</text>
+            <text>等级 {{level}}</text>   
+          </view>
+          <progress percent="{{(points % 50) * 2}}" stroke-width="3" />
+        </view>
+
+        <view class="habits-list">
+          <view wx:for="{{habits}}" wx:key="id" class="habit-item">
+            <view class="habit-checkbox-wrapper">
+              <checkbox 
+                checked="{{item.completed}}" 
+                bindtap="toggleHabit" 
+                data-id="{{item.id}}"
+                class="habit-checkbox"
+              />
+              <text class="habit-name {{item.completed ? 'completed' : ''}}">{{item.name}}</text>
+            </view>
+            <view class="habit-actions">
+              <view class="icon-button" bindtap="startEditHabit" data-id="{{item.id}}">
+                <image class="icon" src="../../images/edit.svg" />
+              </view>
+              <view class="icon-button" bindtap="deleteHabit" data-id="{{item.id}}">
+                <image class="icon" src="../../images/delete.svg" />
+              </view>
+            </view>
+          </view>
+        </view>
+
+        <view class="add-habit">
+          <input 
+            placeholder="新习惯" 
+            value="{{newHabitName}}" 
+            bindinput="onInputChange"
+          />
+          <button bindtap="addHabit">添加</button>
+        </view>
+      </view>
+
+      <view class="card-footer">
+        <text class="section-title">成就</text>
+        <view class="achievements-list">
+          <view wx:for="{{achievements}}" wx:key="id" class="achievement-item">
+            <image 
+              class="icon" 
+              src="{{item.unlocked ? '../../images/trophy1.svg' : '../../images/trophy.svg'}}"
+            />
+            <view class="achievement-content">
+              <text class="{{item.unlocked ? 'unlocked' : 'locked'}}">{{item.name}}</text>
+              <text class="achievement-explanation">{{item.description}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view class="card">
+      <view class="card-header">
+        <text class="card-title">每周概览</text>
+        <text class="card-description">过去一周你的习惯完成情况</text>
+      </view>
+      <view class="card-content">
+        <view class="weekly-overview">
+          <view class="chart-container">
+            <!-- Y-axis -->
+            <view class="y-axis">
+              <text>100%</text>
+              <text>75%</text>
+              <text>50%</text>
+              <text>25%</text>
+              <text>0%</text>
+            </view>
+            
+            <!-- Chart grid lines -->
+            <view class="chart-grid">
+              <view class="grid-line"></view>
+              <view class="grid-line"></view>
+              <view class="grid-line"></view>
+              <view class="grid-line"></view>
+              <view class="grid-line"></view>
+            </view>
+
+            <!-- X-axis bars -->
+            <view class="chart-bars">
+              <view wx:for="{{weeklyData}}" wx:key="date" class="chart-column">
+                <view class="chart-bar-container">
+                  <view class="chart-bar" style="height: {{item['chart-value'] * 100}}%">
+                    <text class="chart-value">{{item.completion}}/{{item.target}}</text>
+                  </view>
+                </view>
+                <text class="chart-label">{{item.displayDate}}</text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</scroll-view>
+
+<!-- Edit Dialog -->
+<view class="dialog-mask" wx:if="{{showEditDialog}}">
+  <view class="dialog">
+    <view class="dialog-header">
+      <text>编辑习惯</text>
+    </view>
+    <view class="dialog-content">
+      <text>习惯名称</text>
+      <input 
+        value="{{newHabitName}}" 
+        bindinput="onInputChange"
+      />
+    </view>
+    <view class="dialog-footer">
+      <button bindtap="cancelEdit">取消</button>
+      <button bindtap="saveEditHabit">保存</button>
+    </view>
+  </view>
+</view>
